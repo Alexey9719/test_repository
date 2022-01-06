@@ -9,6 +9,10 @@ import java.awt.geom.AffineTransform;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+/**
+ * a class in which we describe the basic properties of the form, animation and start drawing the figure
+ * клас, в котором мы описиваем основные свойства формы, анимацию и запускаем рисование фигуры
+ */
 public class TitlesPanel extends JPanel implements ActionListener {
     private Graphics2D g2d;
     private Timer animation;
@@ -16,21 +20,35 @@ public class TitlesPanel extends JPanel implements ActionListener {
     private int start_angle = 0;
     private int shape ;
 
-    //метод присваивает таймер для анимации нашей фигуры
+    /**
+     * the method assigns a timer to animate our shape
+     * метод присваивает таймер для анимации нашей фигуры
+     */
+
     public TitlesPanel(int _shape) {
         this.shape = _shape;
         this.animation = new Timer(50, this);
         this.animation.setInitialDelay(50);
         this.animation.start();
     }
-    //делает повторение анимации
+
+    /**
+     * makes animation repeat
+     * делает повторение анимации
+     */
+
     public void actionPerformed(ActionEvent arg0) {
         if (this.is_done) {
             this.repaint();
         }
 
     }
-    //метод для рисования фигуры, в котором создаётся фигура по размерам, толщине и тд.
+
+    /**
+     * a method for drawing a shape, in which a shape is created by size, thickness, etc.
+     * метод для рисования фигуры, в котором создаётся фигура по размерам, толщине и тд.
+     * @param g
+     */
     private void doDrawing(Graphics g) {
         this.is_done = false;
         this.g2d = (Graphics2D)g;
@@ -62,8 +80,13 @@ public class TitlesPanel extends JPanel implements ActionListener {
         this.is_done = true;
     }
 
+    /**
+     * start drawing
+     * запуск рисования
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.doDrawing(g);//запуск рисования
+        this.doDrawing(g);
     }
 }
