@@ -18,7 +18,7 @@ public class TitlesPanel extends JPanel implements ActionListener {
     private Timer animation;
     private boolean is_done = true;
     private int start_angle = 0;
-    private int shape ;
+    private int shape;
 
     /**
      * the method assigns a timer to animate our shape
@@ -83,7 +83,7 @@ public class TitlesPanel extends JPanel implements ActionListener {
     /**
      * start drawing
      * запуск рисования
-     * @param g
+     *
      */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

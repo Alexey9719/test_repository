@@ -14,8 +14,8 @@ public class TitlesFrame extends JFrame {
     private void initUI() {
         this.setTitle("Кривые фигуры");
         this.setDefaultCloseOperation(3);
-        this.add(new TitlesPanel(28));//Изменяем значения, что бы получить другую фигуру. Например 28-шестиугольник, 38-пятиугольник, 78-треугольник
-        this.setSize(350, 350);//задаём размеры окна
+        this.add(new TitlesPanel(28));
+        this.setSize(350, 350);
         this.setLocationRelativeTo((Component)null);
     }
 
@@ -27,7 +27,7 @@ public class TitlesFrame extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 TitlesFrame ps = new TitlesFrame();
-                ps.setVisible(true);//включаем видимость нашей формы
+                ps.setVisible(true);
             }
         });
     }

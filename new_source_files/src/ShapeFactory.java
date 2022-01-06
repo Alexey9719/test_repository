@@ -32,7 +32,6 @@ public class ShapeFactory {
                 this.shape = createStar(6, new Point(0, 0), (double)this.width / 2.0D, (double)this.width / 5.0D);
                 break;
             case 6:
-
             case 8:
             default:
                 throw new Error("type is nusupported");
@@ -81,11 +80,6 @@ public class ShapeFactory {
     /**
      * a method that creates and draws a star, if given a value corresponding to a pentagon
      * метод который создаёт и рисует звезду, если задано значение соответствующее пятиугольнику
-     * @param arms
-     * @param center
-     * @param rOuter
-     * @param rInner
-     * @return
      */
     private static Shape createStar(int arms, Point center, double rOuter, double rInner) {
         double angle = 3.141592653589793D / (double)arms;
