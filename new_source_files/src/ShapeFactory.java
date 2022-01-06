@@ -13,7 +13,7 @@ public class ShapeFactory {
     public Paint paint;
     public int width = 25;
     public int height = 25;
-
+    //выбор типа фигуры по значению которое мы указали в TitlesFrame
     public ShapeFactory(int shape_type) {
         switch(shape_type / 10) {
             case 1:

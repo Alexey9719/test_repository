@@ -16,20 +16,21 @@ public class TitlesPanel extends JPanel implements ActionListener {
     private int start_angle = 0;
     private int shape ;
 
+    //метод присваивает таймер для анимации нашей фигуры
     public TitlesPanel(int _shape) {
         this.shape = _shape;
         this.animation = new Timer(50, this);
         this.animation.setInitialDelay(50);
         this.animation.start();
     }
-
+    //делает повторение анимации
     public void actionPerformed(ActionEvent arg0) {
         if (this.is_done) {
             this.repaint();
         }
 
     }
-
+    //метод для рисования фигуры, в котором создаётся фигура по размерам, толщине и тд.
     private void doDrawing(Graphics g) {
         this.is_done = false;
         this.g2d = (Graphics2D)g;
@@ -63,6 +64,6 @@ public class TitlesPanel extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.doDrawing(g);
+        this.doDrawing(g);//запуск рисования
     }
 }
