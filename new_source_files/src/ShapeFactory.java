@@ -4,6 +4,7 @@ import java.awt.GradientPaint;
 import java.awt.Paint;
 import java.awt.Point;
 import java.awt.Shape;
+import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D.Double;
 
@@ -23,35 +24,22 @@ public class ShapeFactory {
      * @param shape_type тип фигуры
      */
     public ShapeFactory(int shape_type) {
-        switch(shape_type / 10) {
-            case 1:
-                this.shape = createStar(3, new Point(0, 0), (double)this.width / 2.0D, (double)this.width / 2.0D);
-                break;
-            case 2:
-            case 4:
-                this.shape = createStar(6, new Point(0, 0), (double)this.width / 2.0D, (double)this.width / 5.0D);
-                break;
-            case 6:
-            case 8:
-            default:
-                throw new Error("type is nusupported");
-            case 3:
-                this.shape = createStar(5, new Point(0, 0), (double)this.width / 2.0D, (double)this.width / 4.0D);
-                break;
-            case 5:
-                this.shape = new Double((double)(-this.width) / 2.0D, (double)(-this.height) / 2.0D, (double)this.width, (double)this.height);
-                break;
-            case 7:
+        switch (shape_type / 10) {
+            case 1 -> this.shape = createStar(3, new Point(0, 0), (double) this.width / 2.0D, (double) this.width / 2.0D);
+            case 2, 4 -> this.shape = createStar(6, new Point(0, 0), (double) this.width / 2.0D, (double) this.width / 5.0D);
+            case 6, 8, default -> throw new Error("type is nusupported");
+            case 3 -> this.shape = createStar(5, new Point(0, 0), (double) this.width / 2.0D, (double) this.width / 4.0D);
+            case 5 -> this.shape = new Double((double) (-this.width) / 2.0D, (double) (-this.height) / 2.0D, this.width, this.height);
+            case 7 -> {
                 GeneralPath path = new GeneralPath();
-                double tmp_height = Math.sqrt(2.0D) / 2.0D * (double)this.height;
-                path.moveTo((double)(-this.width / 2), -tmp_height);
+                double tmp_height = Math.sqrt(2.0D) / 2.0D * (double) this.height;
+                path.moveTo(-this.width / 2, -tmp_height);
                 path.lineTo(0.0D, -tmp_height);
-                path.lineTo((double)(this.width / 2), tmp_height);
+                path.lineTo((double) (this.width / 2), tmp_height);
                 path.closePath();
                 this.shape = path;
-                break;
-            case 9:
-                this.shape = new java.awt.geom.Arc2D.Double((double)(-this.width) / 2.0D, (double)(-this.height) / 2.0D, (double)this.width, (double)this.height, 30.0D, 300.0D, 2);
+            }
+            case 9 -> this.shape = new java.awt.geom.Arc2D.Double((double) (-this.width) / 2.0D, (double) (-this.height) / 2.0D, this.width, this.height, 30.0D, 300.0D, Arc2D.PIE);
         }
 
         switch(shape_type % 10) {
